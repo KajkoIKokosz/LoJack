@@ -1,10 +1,9 @@
 $('document').ready(function() {
-    localInit();
+    initMap( getLocalCoord() )
     
-    $('#map').click( function() {
-        
-    })
 });
+
+var tableCoord = [];
 
 function initMap(center) {
     map = $("#map").geomap({
@@ -15,9 +14,12 @@ function initMap(center) {
 
     // pozyskuje przybliżone współrzędne hosta użytkownika
     // zmienna posłuży przy inicjalizacji mapy
-function localInit() {
-    var tableCoord = ""
+function getLocalCoord() {
+    
     $.getJSON("http://ip-api.com/json/?callback=?", function(data) {
-        initMap([data.lon, data.lat]);         
+        tableCoord = [data.lon, data.lat];      
+        console.log(tableCoord);
     });
+    
+    return tableCoord;
 }   
