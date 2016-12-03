@@ -11,7 +11,8 @@ $('document').ready(function() {
 function initMap(center) {
     map = $("#map").geomap({
         center: center || [-71.0597732, 42.3584308],
-        zoom: 14
+        zoom: 14,
+        move: positionEventHandler
     });
     updateBbox();
 }
@@ -46,4 +47,16 @@ function updateBbox( ) {
     var spans = $( sel ).children( 'span' );
     $( spans[ 0 ] ).text( coord[ 0 ].toFixed( 2 ) );
     $( spans[ 1 ] ).text( coord[ 1 ].toFixed( 2 ) );
+  }
+  
+  function positionEventHandler( e, geo ) {
+    
+    // the coordinates property is an array
+    var displayCoords = geo.coordinates;
+    for(var i = 0; i < displayCoords.length; i++) {
+        console.log(displayCoords[i]);
+    }
+
+
+  
   }
