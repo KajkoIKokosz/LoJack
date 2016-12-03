@@ -16,10 +16,14 @@
  </head>
   
 <body>
-  <div id="inne">aaa</div>
-  <div id="map" style="height: 480px;"></div>
-  
-  
+   <div id="map">
+    <div id="info">
+      <dl>
+          <dt>geodezyjny</dt><dd class="geodetic">[ <span class="lon"></span>, <span class="lat"></span> ] <span>deg</span></dd>
+        <dt>geograficzny</dt><dd class="projected">[ <span class="x"></span>, <span class="y"></span> ] <span>metry</span></dd>
+      </dl>
+    </div>
+  </div>
   
 </body>
 </html>

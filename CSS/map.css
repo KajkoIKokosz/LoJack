@@ -7,7 +7,7 @@ dt, dd {
 dt {  
   clear: left;
   display: inline-block;
-  width: 2em;
+  width: 4em;
 }
 
 /* template style */
