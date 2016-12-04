@@ -64,6 +64,8 @@ function updateBbox( ) {
         displayCoord('.geodetic_coursor', geodetic);
         displayCoord('.projected_coursor', projected);
     };
+    // jeżeli zdarzeniem jest podwójne kliknięcie do formularza (index.php)
+    // przekazane zostają współrzędne zdarzenia
     if(e.type == 'geomapdblclick') {
         $("#x").val(projected[0]);
         $("#y").val(projected[1]);
