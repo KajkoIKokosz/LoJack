@@ -64,7 +64,9 @@ function updateBbox( ) {
         displayCoord('.geodetic_coursor', geodetic);
         displayCoord('.projected_coursor', projected);
     };
-   
-    
-    console.log(coursorCoordinates);
+    if(e.type == 'geomapdblclick') {
+        $("#x").val(projected[0]);
+        $("#y").val(projected[1]);
+    }
+ 
   }

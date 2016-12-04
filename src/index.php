@@ -29,11 +29,16 @@
           <dt>geodezyjny</dt><dd class="geodetic_coursor">[ <span class="lon"></span>, <span class="lat"></span> ] <span>deg</span></dd>
         <dt>geograficzny</dt><dd class="projected_coursor">[ <span class="x"></span>, <span class="y"></span> ] <span>metry</span></dd>
       </dl>
-      <form name="findTheDistance" action="" method="GET">
+      <br><br>
+      <div id='request'>
+        <h4>WPROWADŹ SZUKANE PUNKTY</h4>  
+        <form name="findTheDistance" action="" method="GET">
           <input type="text" id='x'>
           <input type='text'id='y'>
-      </form>
+        </form>
+      </div>
     </div>
+        
   </div>
   
 </body>
