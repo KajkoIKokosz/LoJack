@@ -12,6 +12,13 @@
   <script src="http://code.jquerygeo.com/jquery.geo-1.0.0-rc1.min.js"></script>
   <script src="../js/map.js" type="text/javascript"></script>
   <link href="../CSS/map.css" rel="stylesheet" type="text/css"/>
+  
+  <!-- BOOTSTRAPP -->
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+   
 
  </head>
   
