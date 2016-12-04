@@ -8,11 +8,16 @@ $('document').ready(function() {
     
 });
 
+// zmienna coursorCoordinates przechowuje współrzędne 
+// pobrane za pomocą metody positionEventHandler
+var coursorCoordinates = [];
+
 function initMap(center) {
     map = $("#map").geomap({
         center: center || [-71.0597732, 42.3584308],
         zoom: 14,
-        move: positionEventHandler
+        move: positionEventHandler,
+        dblclick: positionEventHandler
     });
     updateBbox();
 }
@@ -50,13 +55,16 @@ function updateBbox( ) {
   }
   
   function positionEventHandler( e, geo ) {
+  // pobieram współrzędne kursora i przekazuje je 
+  // do globalnej zmiennej tablicowej
+    coursorCoordinates = geo.coordinates;
+    var geodetic = $.geo.proj.toGeodetic( coursorCoordinates );
+    var projected = $.geo.proj.fromGeodetic( coursorCoordinates );
+    if(e.type == 'geomapmove'){
+        displayCoord('.geodetic_coursor', geodetic);
+        displayCoord('.projected_coursor', projected);
+    };
+   
     
-    // the coordinates property is an array
-    var displayCoords = geo.coordinates;
-    for(var i = 0; i < displayCoords.length; i++) {
-        console.log(displayCoords[i]);
-    }
-
-
-  
+    console.log(coursorCoordinates);
   }
