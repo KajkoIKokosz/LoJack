@@ -18,11 +18,12 @@ html {
 }
 
 #map {
-  position: absolute;
+/*  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  left: 400px;
+  left: 0;*/
+  min-height: 500px;
 }
 
 #info {
@@ -32,7 +33,7 @@ html {
   font-size: .8em;
   max-width: 66%;
   padding: .25em .5em;
-  position: absolute;
+/*  position: absolute;*/
   left: 1em;
   top: 1em;
 }
