@@ -6,24 +6,17 @@ $('document').ready(function() {
         updateBbox();
     })
     
-//    Obsługa checkboxa do wyboru formatu współrzędnych
+    $('#compute_distance').click( function(e) {
+        e.preventDefault();
+        console.log('przycisk oblicz działa');
+        var latLngA = new google.maps.LatLng({lat: 52.259, lng: 21.02}); 
+        var latLngB = new google.maps.LatLng({lat: 50.060, lng: 19.959}); 
+        var distance = google.maps.geometry.spherical.computeDistanceBetween (latLngA, latLngB);
+        
+        console.log(distance);
+    })
+    
 
-    $('input[type=radio][name=data_format]').change(function() {
-        if (this.value == 'Deg_Min_Sec') {
-//            $('#deg_decimal_radio').slideDown(5);
-//            $('#deg_min_sec_radio').slideUp(5);
-            
-            $('#deg_decimal').slideUp(10);
-            $('#deg_min_sec').slideDown(10);
-        }
-        else if (this.value == 'Deg_decimal') {
-//            $('#deg_min_sec_radio').slideDown(5);
-//            $('#deg_decimal_radio').slideUp(5);
-            
-            $('#deg_decimal').slideDown(10);
-            $('#deg_min_sec').slideUp(10);
-        }
-    });
 
 });
 
@@ -31,9 +24,13 @@ $('document').ready(function() {
 // pobrane za pomocą metody positionEventHandler
 var coursorCoordinates = [];
 
+// zmienna boubleClickCounter odróżnia klikniecia parzyste od nieparzystych
+// przy kliknięciach nieparzystych dodawać się bedą współrzędne do pierwszego punktu
+// przy kliknieciach parzystych dodawać sie będą współrzędne do drugiego punktu
+
 function initMap(center) {
     map = $("#map").geomap({
-        center: center || [-71.0597732, 42.3584308],
+        center: center || [51.0597732, 22.3584308],
         zoom: 14,
         move: positionEventHandler,
         dblclick: positionEventHandler
@@ -46,9 +43,10 @@ function initMap(center) {
 function getLocalCoord() {
     $.getJSON("http://ip-api.com/json/?callback=?", function(data) {
         initMap([data.lon, data.lat]);      
-    });
-    
+    });   
 }
+
+
 
 function updateBbox( ) {
     // when you move the map, we ask it
@@ -61,6 +59,7 @@ function updateBbox( ) {
     var geodetic = $.geo.proj.toGeodetic( center );
     displayCoord( '.geodetic', geodetic );
     
+    //  !!!!
     // projected is x, y coordinates on your projected plane (Web Mercator meters in this case)
     // you would use projected coordinates when proper comparison or math is required such as calculating the distance between points
     var projected = $.geo.proj.fromGeodetic( center );
@@ -86,11 +85,8 @@ function updateBbox( ) {
     // jeżeli zdarzeniem jest podwójne kliknięcie do formularza (index.php)
     // przekazane zostają współrzędne zdarzenia
     if(e.type == 'geomapdblclick') {
-        $("#y").val(geodetic[0].toFixed( 4 ));
-        $("#x").val(geodetic[1].toFixed( 4 ));
-        $('#deg_decimal').slideDown(10);
-        $('#deg_min_sec').slideUp(10);
-        $('input[type=radio][name=data_format][value=Deg_decimal]').attr('checked', 'checked');
+        $("#y1").val(geodetic[0].toFixed( 4 ));
+        $("#x1").val(geodetic[1].toFixed( 4 ));
     }
  
   }
