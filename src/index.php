@@ -45,7 +45,7 @@
             </form>
           </div>
         </div>
-        <div id="map" class="col-lg-8 col-md-8"></div>
+        <div id="map" class="col-lg-8 col-md-9"></div>
     </div>
 </div>
 </body>
