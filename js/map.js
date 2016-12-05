@@ -6,25 +6,21 @@ $('document').ready(function() {
         updateBbox();
     })
     
+//    zdarzenie - zatwierdzenie formularza ze współrzędnymi
     $('#compute_distance').click( function(e) {
-        e.preventDefault();
-        console.log('przycisk oblicz działa');
         var latLngA = new google.maps.LatLng({lat: 52.259, lng: 21.02}); 
         var latLngB = new google.maps.LatLng({lat: 50.060, lng: 19.959}); 
         var distance = google.maps.geometry.spherical.computeDistanceBetween (latLngA, latLngB);
         
         console.log(distance);
     })
-    
-
-
 });
 
 // zmienna coursorCoordinates przechowuje współrzędne 
 // pobrane za pomocą metody positionEventHandler
 var coursorCoordinates = [];
 
-// zmienna boubleClickCounter odróżnia klikniecia parzyste od nieparzystych
+// zmienna doubleClickCounter odróżnia klikniecia parzyste od nieparzystych
 // przy kliknięciach nieparzystych dodawać się bedą współrzędne do pierwszego punktu
 // przy kliknieciach parzystych dodawać sie będą współrzędne do drugiego punktu
 
@@ -45,8 +41,6 @@ function getLocalCoord() {
         initMap([data.lon, data.lat]);      
     });   
 }
-
-
 
 function updateBbox( ) {
     // when you move the map, we ask it
@@ -88,5 +82,4 @@ function updateBbox( ) {
         $("#y1").val(geodetic[0].toFixed( 4 ));
         $("#x1").val(geodetic[1].toFixed( 4 ));
     }
- 
-  }
+ }
