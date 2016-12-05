@@ -1,6 +1,4 @@
 <?php
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +21,7 @@
 <body>  
 <div class="container">
     <div class="row">
-        <div id="info" class="col-md-3 col-sm-6 col-xs-12">
+        <div id="info" class="col-lg-4 col-md-4">
           <h4>WSPÓŁRZĘDNE ŚRODKA EKRANU</h4>
           <dl>
             <dt>geodezyjny</dt><dd class="geodetic">[ <span class="lon"></span>, <span class="lat"></span> ] <span>deg</span></dd>
@@ -44,9 +42,8 @@
             </form>
           </div>
         </div>
-        <div id="map" class="col-md-3 col-sm-6 col-xs-12"></div>
+        <div id="map" class="col-lg-8 col-md-8"></div>
     </div>
 </div>
 </body>
 </html>
-  
