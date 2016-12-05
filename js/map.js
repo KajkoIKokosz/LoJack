@@ -10,12 +10,18 @@ $('document').ready(function() {
 
     $('input[type=radio][name=data_format]').change(function() {
         if (this.value == 'Deg_Min_Sec') {
-            $('#deg_decimal').slideDown(5);
-            $('#deg_min_sec').slideUp(5);
+//            $('#deg_decimal_radio').slideDown(5);
+//            $('#deg_min_sec_radio').slideUp(5);
+            
+            $('#deg_decimal').slideUp(10);
+            $('#deg_min_sec').slideDown(10);
         }
         else if (this.value == 'Deg_decimal') {
-            $('#deg_min_sec').slideDown(5);
-            $('#deg_decimal').slideUp(5);
+//            $('#deg_min_sec_radio').slideDown(5);
+//            $('#deg_decimal_radio').slideUp(5);
+            
+            $('#deg_decimal').slideDown(10);
+            $('#deg_min_sec').slideUp(10);
         }
     });
 
@@ -36,7 +42,7 @@ function initMap(center) {
 }
 
     // pozyskuje przybliżone współrzędne hosta użytkownika
-    // zmienna posłuży przy inicjalizacji mapy
+    // i dla otrzymanych współrzędnych inicjuję mapę
 function getLocalCoord() {
     $.getJSON("http://ip-api.com/json/?callback=?", function(data) {
         initMap([data.lon, data.lat]);      
@@ -80,8 +86,11 @@ function updateBbox( ) {
     // jeżeli zdarzeniem jest podwójne kliknięcie do formularza (index.php)
     // przekazane zostają współrzędne zdarzenia
     if(e.type == 'geomapdblclick') {
-        $("#x").val(projected[0]);
-        $("#y").val(projected[1]);
+        $("#y").val(geodetic[0].toFixed( 4 ));
+        $("#x").val(geodetic[1].toFixed( 4 ));
+        $('#deg_decimal').slideDown(10);
+        $('#deg_min_sec').slideUp(10);
+        $('input[type=radio][name=data_format][value=Deg_decimal]').attr('checked', 'checked');
     }
  
   }

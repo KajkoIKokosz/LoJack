@@ -2,11 +2,10 @@
 <html>
 <head>
   <meta name="description" content="map projection" 
-  <!-- BOOTSTRAPP -->      
+  <!-- BOOTSTRAP -->      
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
- 
     
   <meta charset="utf-8" />
   <title>LoJack map</title>
@@ -15,8 +14,7 @@
   <script src="js/map.js" type="text/javascript"></script>
   <link href="CSS/map.css" rel="stylesheet" type="text/css"/>
 
- </head>
-  
+</head>
 <body>  
 <div class="container">
     <div class="row">To jest rowek</div>
@@ -39,15 +37,14 @@
             <form name="findTheDistance" action="src/start.php" method="POST">
                 <label>Zmień format:
                     <br>
-                    <span id='deg_min_sec' class='form_invisible'>
+                    <span id='deg_min_sec_radio'>
                         <input type="radio" name="data_format" checked='1' value="Deg_Min_Sec"> Deg Min Sec
                     </span>
-                    <br>
-                    <span id='deg_decimal'>
+                    <span id='deg_decimal_radio'>
                         <input type="radio" name="data_format" value="Deg_decimal" > Deg,decimal
                     </span>
                 </label>
-              <div id="min_sec">
+              <div id="deg_min_sec">
                 <label>Szerokość:
                     <input type="number" min="-89" max="89" step="1" id='x_deg' name="lat_deg" class="lat_long_min">
                     <input input type="number" min="0" max="59" step="1" id='x_min' name="lat_min" class="lat_long_min">
