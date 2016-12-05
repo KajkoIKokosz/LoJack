@@ -35,12 +35,17 @@
           </dl>
           <br><br>
           <div id='request'>
-            <h4>WPROWADŹ SZUKANE PUNKTY</h4>  
+            <h4>OKREŚL SZUKANE PUNKTY</h4>  
             <form name="findTheDistance" action="src/start.php" method="POST">
-                <label>Wybierz format:
+                <label>Zmień format:
                     <br>
-                    <input type="radio" name="data_format" value="Deg_Min_Sec"> Deg Min Sec<br>
-                    <input type="radio" name="data_format" value="Deg_decimal"> Deg,decimal<br>
+                    <span id='deg_min_sec' class='form_invisible'>
+                        <input type="radio" name="data_format" checked='1' value="Deg_Min_Sec"> Deg Min Sec
+                    </span>
+                    <br>
+                    <span id='deg_decimal'>
+                        <input type="radio" name="data_format" value="Deg_decimal" > Deg,decimal
+                    </span>
                 </label>
               <div id="min_sec">
                 <label>Szerokość:
@@ -54,7 +59,7 @@
                     <input type="text" type="number" min="0" max="59" step="0.1" id='y_sec' name="long_min" class="lat_long_min">
                 </label>
               </div>
-              <div id="decimal">
+              <div id="deg_decimal" class="form_invisible">
                 <label for="x">Szerokość:</label>
                 <input type="number" min="-89" max="89" step="0.0001" id='x' name="long">
                 <label for="x">Wysokość:</label>

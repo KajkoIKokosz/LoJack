@@ -6,6 +6,19 @@ $('document').ready(function() {
         updateBbox();
     })
     
+//    Obsługa checkboxa do wyboru formatu współrzędnych
+
+    $('input[type=radio][name=data_format]').change(function() {
+        if (this.value == 'Deg_Min_Sec') {
+            $('#deg_decimal').slideDown(5);
+            $('#deg_min_sec').slideUp(5);
+        }
+        else if (this.value == 'Deg_decimal') {
+            $('#deg_min_sec').slideDown(5);
+            $('#deg_decimal').slideUp(5);
+        }
+    });
+
 });
 
 // zmienna coursorCoordinates przechowuje współrzędne 
