@@ -8,10 +8,27 @@ $('document').ready(function() {
     
 //    zdarzenie - zatwierdzenie formularza ze współrzędnymi
     $('#compute_distance').click( function(e) {
-        $.getJSON('../src/getJson.php', function (data) {
-            console.log(data);
-            jsonData = data;
-        });
+        e.preventDefault();
+        console.log();
+//        $.getJSON('../src/getJson.php', function (data) {
+//            console.log(data);
+//            jsonData = data;
+//        });
+        
+        $.ajax({
+                url: 'http://localhost:1337/LoJack/src/getJson.php',
+                
+                type: 'GET',
+                dataType: 'json'
+        })
+        .done(function(json) {
+                // jesli sie udalo, ladujemy uaktualniona liste ksiazek
+                console.log("test jsona: ");
+                console.log(json);
+
+              
+        })
+        
         var latLngA = new google.maps.LatLng(jsonData[0]); 
         var latLngB = new google.maps.LatLng(jsonData[1]); 
         console.log(latLngB);

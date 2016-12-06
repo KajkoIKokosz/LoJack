@@ -12,6 +12,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $serializedData = json_encode($quest);
     }
     $_SESSION['json'] = $serializedData;
+    //var_dump($_SESSION['json']);
     header('Location: ../index.html');
 }
 

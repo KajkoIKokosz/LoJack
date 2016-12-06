@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,8 +55,9 @@
                 <input type="number" min="-179" max="179" step="0.0001" id='y2' name="lat2" placeholder="wysokość">
                 </label>
               </div>
-              <input type="submit" value="oblicz odległość" id='compute_distance'>
+              <input type="submit" value="wprowadź punkty">
             </form>
+            <input type='button' value='oblicz' id='compute_distance'>
           </div>
         </div>
         <div id="map" class="col-lg-8 col-md-8"></div>
