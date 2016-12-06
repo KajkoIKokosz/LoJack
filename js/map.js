@@ -24,8 +24,8 @@ $('document').ready(function() {
         ){
             e.preventDefault();
             $('#form_validation').empty();
-            $('#form_validation').append("<span>*Wprowadź wszystkie współrzędne</span>");
-        }
+            $('#form_validation').append("<span>*Wprowadź wszystkie współrzędne</span>");    
+        } 
     })
     
     
@@ -33,7 +33,7 @@ $('document').ready(function() {
     $('#compute_distance').click( function(e) {
         e.preventDefault();
         console.log();
-       
+        
         $.ajax({
             url: 'http://localhost:1337/LoJack/src/getJson.php',
             
@@ -51,9 +51,12 @@ $('document').ready(function() {
             var latLngB = new google.maps.LatLng({lat: lat2, lng: lng2}); 
             var distance = google.maps.geometry.spherical.computeDistanceBetween (latLngA, latLngB);
             
-            $('#resultt').append('<h2>Odległość pomiedzy punktami wynosi:</h2>' + (distance / 1000).toFixed(0) + 'kilometrów, czyli ' + distance.toFixed(0) + 'metrów');
-            console.log(distance);
+            $('#resultt').append('<h2>Odległość pomiedzy punktami wynosi:</h2>' + (distance / 1000).toFixed(0) + 'kilometrów, a dokładniej ' + distance.toFixed(0) + 'metrów');
+//            Oprócz metody empty() podczas rządania URL w pliku getJson.php wywołane zostaje unset ($_SESSION['yourPointsOfInterest'])
+            $('#your_point_message').empty();
         })
+    
+        
     })
 });
 

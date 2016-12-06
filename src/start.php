@@ -12,8 +12,11 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $serializedData = json_encode($quest);
     }
     $_SESSION['json'] = $serializedData;
-    //var_dump($_SESSION['json']);
-    header('Location: ../index.html');
+    $_SESSION['yourPointsOfInterest'] = "Interesujące Cię punkty to: <br>
+        {$_POST['long1']}, {$_POST['lat1']} oraz 
+        {$_POST['long2']}, {$_POST['lat2']}";
+    
+    header('Location: ../index.php');
 }
 
 ?>
