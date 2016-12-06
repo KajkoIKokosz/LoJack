@@ -27,8 +27,7 @@ $('document').ready(function() {
             $('#form_validation').append("<span>*Wprowadź wszystkie współrzędne</span>");    
         } 
     })
-    
-    
+   
 //    zdarzenie - przycisk oblicz odległość
     $('#compute_distance').click( function(e) {
         e.preventDefault();
@@ -51,12 +50,10 @@ $('document').ready(function() {
             var latLngB = new google.maps.LatLng({lat: lat2, lng: lng2}); 
             var distance = google.maps.geometry.spherical.computeDistanceBetween (latLngA, latLngB);
             
-            $('#resultt').append('<h2>Odległość pomiedzy punktami wynosi:</h2>' + (distance / 1000).toFixed(0) + 'kilometrów, a dokładniej ' + distance.toFixed(0) + 'metrów');
+            $('#resultt').append('<h2>Odległość pomiedzy punktami wynosi:</h2><h3>' + (distance / 1000).toFixed(0) + 'kilometrów, a dokładniej ' + distance.toFixed(0) + 'metrów</h3>');
 //            Oprócz metody empty() podczas rządania URL w pliku getJson.php wywołane zostaje unset ($_SESSION['yourPointsOfInterest'])
             $('#your_point_message').empty();
         })
-    
-        
     })
 });
 
@@ -79,13 +76,9 @@ function getLocalCoord() {
 }
 
 function updateBbox( ) {
-    // when you move the map, we ask it
-    // for the new center in both
-    // geodetic (lon, lat) and
-    // projected (x, y / Web Mercator meters)
     var center = map.geomap( 'option', 'center' );
     
-    // geodetic means the latitude, longitude coordinates      
+    // szerokość, długość geograficzna
     var geodetic = $.geo.proj.toGeodetic( center );
     displayCoord( '.geodetic', geodetic );
     

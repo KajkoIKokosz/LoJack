@@ -25,31 +25,48 @@ session_start();
   
   <title>LoJack map</title>
   <style>
+  
+      
       .jumbotron{
-          background-color:#2E2D88;
-          color: white;
+        padding-top: 0px;
+        background-color:#6269c4;
+        color: white;
       }
+      
+      .panel-footer{
+          background-color: white;
+          text-align: center;
+          color: lightsteelblue;
+          font-size: 1em;
+      }
+      
+  
+      
+      
+      
   </style>
 </head>
 <body>  
 <div class="container">
-    <div class="page-header" id="resultt"></div>
+    <div class="page-header" id="resultt">
+        
+    </div>
     <div class='jumbotron'>
     <div class="row">
-        <div id="info" class="col-lg-4 col-md-4">
-            <div class="row left_panel left_up">
-                <h5>WSPÓŁRZĘDNE ŚRODKA EKRANU</h5>
+        <div class="col-lg-4 col-md-4">
+            <div class="row left_up">
+                <h5 class="coord_head">WSPÓŁRZĘDNE ŚRODKA EKRANU</h5>
                 <dl>
                   <dt></dt><dd class="geodetic">[ <span class="lon"></span>, <span class="lat"></span> ] <span>deg</span></dd>
                   <!--<dt>płaskie</dt><dd class="projected">[ <span class="x"></span>, <span class="y"></span> ] <span>metry</span></dd>-->
                 </dl>
                 <br><br>
-                <h5>WSPÓŁRZĘDNE KURSORA</h5>
+                <h5 class="coord_head">WSPÓŁRZĘDNE KURSORA</h5>
                 <dl>
                   <dt></dt><dd class="geodetic_coursor">[ <span class="lon"></span>, <span class="lat"></span> ] <span>deg</span></dd>
                   <!--<dt>płaskie</dt><dd class="projected_coursor">[ <span class="x"></span>, <span class="y"></span> ] <span>metry</span></dd>-->
                 </dl>
-                <br><br>
+                <br><hr>
                 <div id='request'>
                   <h4>OKREŚL SZUKANE PUNKTY</h4> 
     <!--                      <h4><a href='#instruct' data-toggle='collapse'>Instrukcja</a></h4>
@@ -74,7 +91,7 @@ session_start();
                     </div>
                     <div class="btn-group">
                       <input type="submit" value="wprowadź punkty" class="btn btn-danger" id='insert_coordinates'>
-                      <input type='button' value='oblicz' id='compute_distance' class="btn btn-info">
+                      <input type='button' value='oblicz odległość' id='compute_distance' class="btn btn-info">
                     </div>
                   </form>
                 </div>
@@ -83,7 +100,7 @@ session_start();
                 <div id='your_point_message'>
                     <?php
                         if ( isset($_SESSION['yourPointsOfInterest']) ) {
-                            echo $_SESSION['yourPointsOfInterest'];
+                            echo "<hr> {$_SESSION['yourPointsOfInterest']}";
                         }
                     ?>
                 </div>
@@ -92,6 +109,9 @@ session_start();
         <div id="map" class="col-lg-8 col-md-8"></div>
     </div>
     </div>
+    <div class="panel-footer">by Przemysław Gędziorowski</div>
 </div>
+    
+    
 </body>
 </html>
