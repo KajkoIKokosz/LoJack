@@ -15,7 +15,7 @@ $('document').ready(function() {
         updateBbox();
     })
     
-//    zdarzenie - zatwierdzenie formularza ze współrzędnymi
+//    zdarzenie - przycisk oblicz odległość
     $('#compute_distance').click( function(e) {
         e.preventDefault();
         console.log();
@@ -27,25 +27,20 @@ $('document').ready(function() {
             dataType: 'json'
         })
             .done(function(data) {
-            // jesli sie udalo, ladujemy uaktualniona liste ksiazek
-            console.log("test jsona: ");
+            
             var jsonData = data;
             var lat1 = parseFloat(jsonData[0]['lat']);
             var lng1 = parseFloat(jsonData[0]['lng']);
             var lat2 = parseFloat(jsonData[1]['lat']);
             var lng2 = parseFloat(jsonData[1]['lng']);
-
             var latLngA = new google.maps.LatLng({lat: lat1, lng: lng1}); 
             var latLngB = new google.maps.LatLng({lat: lat2, lng: lng2}); 
-            console.log(latLngB);
             var distance = google.maps.geometry.spherical.computeDistanceBetween (latLngA, latLngB);
-            console.log(distance);
-            $('#testuj').append(distance);
+            
+            $('#resultt').append('<h2>Odległość pomiedzy punktami wynosi:</h2>' + (distance / 1000).toFixed(0) + 'kilometrów, czyli ' + distance.toFixed(0) + 'metrów');
         })
     })
 });
-
-
 
 function initMap(center) {
     map = $("#map").geomap({
@@ -85,8 +80,8 @@ function updateBbox( ) {
   
   function displayCoord( sel, coord ) {
     var spans = $( sel ).children( 'span' );
-    $( spans[ 0 ] ).text( coord[ 0 ].toFixed( 2 ) );
-    $( spans[ 1 ] ).text( coord[ 1 ].toFixed( 2 ) );
+    $( spans[ 0 ] ).text( coord[ 1 ].toFixed( 2 ) );
+    $( spans[ 1 ] ).text( coord[ 0 ].toFixed( 2 ) );
   }
   
   function positionEventHandler( e, geo ) {
