@@ -64,6 +64,4 @@ class distanceRequest implements JsonSerializable{
         );
         return $coorditnates; 
     }
-    
-
 }

@@ -21,12 +21,8 @@ session_start();
   <!-- google.maps.api -->
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBVc9CA9EBjv9qK65pOaQC1KrOSi5kBqnc&v=3&libraries=geometry"></script>
   
-  
-  
   <title>LoJack map</title>
   <style>
-  
-      
       .jumbotron{
         padding-top: 0px;
         background-color:#6269c4;
@@ -39,17 +35,11 @@ session_start();
           color: lightsteelblue;
           font-size: 1em;
       }
-      
-  
-      
-      
-      
   </style>
 </head>
 <body>  
 <div class="container">
-    <div class="page-header" id="resultt">
-        
+    <div class="page-header" id="resultt"> 
     </div>
     <div class='jumbotron'>
     <div class="row">
@@ -111,7 +101,5 @@ session_start();
     </div>
     <div class="panel-footer">by Przemysław Gędziorowski</div>
 </div>
-    
-    
 </body>
 </html>
