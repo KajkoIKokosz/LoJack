@@ -16,26 +16,30 @@ $('document').ready(function() {
 //        });
         
         $.ajax({
-                url: 'http://localhost:1337/LoJack/src/getJson.php',
-                
-                type: 'GET',
-                dataType: 'json'
+            url: 'http://localhost:1337/LoJack/src/getJson.php',
+            
+            type: 'GET',
+            dataType: 'json'
         })
-        .done(function(json) {
-                // jesli sie udalo, ladujemy uaktualniona liste ksiazek
-                console.log("test jsona: ");
-                console.log(json);
+            .done(function(data) {
+            // jesli sie udalo, ladujemy uaktualniona liste ksiazek
+            console.log("test jsona: ");
+            jsonData = data;
+            var lat1 = parseFloat(jsonData[0]['lat']);
+            var lng1 = parseFloat(jsonData[0]['lng']);
+            var lat2 = parseFloat(jsonData[1]['lat']);
+            var lng2 = parseFloat(jsonData[1]['lng']);
 
-              
+            var latLngA = new google.maps.LatLng({lat: lat1, lng: lng1}); 
+            var latLngB = new google.maps.LatLng({lat: lat2, lng: lng2}); 
+            console.log(latLngB);
+            var distance = google.maps.geometry.spherical.computeDistanceBetween (latLngA, latLngB);
+            console.log(distance);
+            $('#testuj').append(distance);
         })
+    })
         
-        var latLngA = new google.maps.LatLng(jsonData[0]); 
-        var latLngB = new google.maps.LatLng(jsonData[1]); 
-        console.log(latLngB);
-        var distance = google.maps.geometry.spherical.computeDistanceBetween (latLngA, latLngB);
-        alert(distance);
-        $('#testuj').append(distance);
-        })
+       
 });
 
 // zmienna coursorCoordinates przechowuje współrzędne 
