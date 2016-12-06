@@ -1,3 +1,12 @@
+// zmienna coursorCoordinates przechowuje współrzędne 
+// pobrane za pomocą metody positionEventHandler
+var coursorCoordinates = [];
+
+// zmienna doubleClickCounter odróżnia klikniecia parzyste od nieparzystych
+// przy kliknięciach nieparzystych dodawać się bedą współrzędne do pierwszego punktu
+// przy kliknieciach parzystych dodawać sie będą współrzędne do drugiego punktu
+var doubleClickCounter = 1;
+
 $('document').ready(function() {
     
     getLocalCoord();
@@ -10,11 +19,7 @@ $('document').ready(function() {
     $('#compute_distance').click( function(e) {
         e.preventDefault();
         console.log();
-//        $.getJSON('../src/getJson.php', function (data) {
-//            console.log(data);
-//            jsonData = data;
-//        });
-        
+       
         $.ajax({
             url: 'http://localhost:1337/LoJack/src/getJson.php',
             
@@ -24,7 +29,7 @@ $('document').ready(function() {
             .done(function(data) {
             // jesli sie udalo, ladujemy uaktualniona liste ksiazek
             console.log("test jsona: ");
-            jsonData = data;
+            var jsonData = data;
             var lat1 = parseFloat(jsonData[0]['lat']);
             var lng1 = parseFloat(jsonData[0]['lng']);
             var lat2 = parseFloat(jsonData[1]['lat']);
@@ -38,17 +43,9 @@ $('document').ready(function() {
             $('#testuj').append(distance);
         })
     })
-        
-       
 });
 
-// zmienna coursorCoordinates przechowuje współrzędne 
-// pobrane za pomocą metody positionEventHandler
-var coursorCoordinates = [];
-var jsonData = [];
-// zmienna doubleClickCounter odróżnia klikniecia parzyste od nieparzystych
-// przy kliknięciach nieparzystych dodawać się bedą współrzędne do pierwszego punktu
-// przy kliknieciach parzystych dodawać sie będą współrzędne do drugiego punktu
+
 
 function initMap(center) {
     map = $("#map").geomap({
@@ -105,7 +102,14 @@ function updateBbox( ) {
     // jeżeli zdarzeniem jest podwójne kliknięcie do formularza (index.php)
     // przekazane zostają współrzędne zdarzenia
     if(e.type == 'geomapdblclick') {
-        $("#y1").val(geodetic[0].toFixed( 4 ));
-        $("#x1").val(geodetic[1].toFixed( 4 ));
+        if( (doubleClickCounter % 2) == 0 ){
+            doubleClickCounter++;
+            $("#y2").val(geodetic[0].toFixed( 4 ));
+            $("#x2").val(geodetic[1].toFixed( 4 ));
+        } else {
+            doubleClickCounter++;
+            $("#y1").val(geodetic[0].toFixed( 4 ));
+            $("#x1").val(geodetic[1].toFixed( 4 ));
+        }
     }
  }
