@@ -8,18 +8,23 @@ $('document').ready(function() {
     
 //    zdarzenie - zatwierdzenie formularza ze współrzędnymi
     $('#compute_distance').click( function(e) {
-        var latLngA = new google.maps.LatLng({lat: 52.259, lng: 21.02}); 
-        var latLngB = new google.maps.LatLng({lat: 50.060, lng: 19.959}); 
+        $.getJSON('../src/getJson.php', function (data) {
+            console.log(data);
+            jsonData = data;
+        });
+        var latLngA = new google.maps.LatLng(jsonData[0]); 
+        var latLngB = new google.maps.LatLng(jsonData[1]); 
+        console.log(latLngB);
         var distance = google.maps.geometry.spherical.computeDistanceBetween (latLngA, latLngB);
-        
-        console.log(distance);
-    })
+        alert(distance);
+        $('#testuj').append(distance);
+        })
 });
 
 // zmienna coursorCoordinates przechowuje współrzędne 
 // pobrane za pomocą metody positionEventHandler
 var coursorCoordinates = [];
-
+var jsonData = [];
 // zmienna doubleClickCounter odróżnia klikniecia parzyste od nieparzystych
 // przy kliknięciach nieparzystych dodawać się bedą współrzędne do pierwszego punktu
 // przy kliknieciach parzystych dodawać sie będą współrzędne do drugiego punktu
