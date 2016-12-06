@@ -15,6 +15,20 @@ $('document').ready(function() {
         updateBbox();
     })
     
+    // walidacja, czy pola formularza są wypełnione
+    $('#insert_coordinates').click( function(e) {
+        if ( ($.trim($("#x1").val()).length < 1 )
+          || ($.trim($("#y1").val()).length < 1)   
+          || ($.trim($("#x2").val()).length < 1)             
+          || ($.trim($("#y2").val()).length < 1)             
+        ){
+            e.preventDefault();
+            $('#form_validation').empty();
+            $('#form_validation').append("<span>*Wprowadź wszystkie współrzędne</span>");
+        }
+    })
+    
+    
 //    zdarzenie - przycisk oblicz odległość
     $('#compute_distance').click( function(e) {
         e.preventDefault();
@@ -38,6 +52,7 @@ $('document').ready(function() {
             var distance = google.maps.geometry.spherical.computeDistanceBetween (latLngA, latLngB);
             
             $('#resultt').append('<h2>Odległość pomiedzy punktami wynosi:</h2>' + (distance / 1000).toFixed(0) + 'kilometrów, czyli ' + distance.toFixed(0) + 'metrów');
+            console.log(distance);
         })
     })
 });
