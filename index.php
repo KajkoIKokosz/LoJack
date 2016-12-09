@@ -19,7 +19,8 @@ session_start();
   <link href="CSS/map.css" rel="stylesheet" type="text/css"/>
   
   <!-- google.maps.api -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkkjlYoxone7Hx0QdAYOfotmERGysGxe8&libraries=geometry&callback=initMap"></script>
+  <!--wygeneruj własny klucz https://developers.google.com/maps/documentation/javascript/get-api-key-->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6w9gQkvmwNqJvV4jPrlMt3WPiTcc6BiA&libraries=geometry&callback=initMap"></script>
   
   <title>LoJack map</title>
   <style>
