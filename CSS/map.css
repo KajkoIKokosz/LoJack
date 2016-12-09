@@ -1,4 +1,27 @@
+.coord_head {
+    padding-top: 15px;
+}
 
+#your_point_message {
+    padding-top: 5%;
+}
+
+.form_coord {
+    color: #2E2D88;
+}
+
+.left_down {
+    min-height: 25px;    
+}
+
+#resultt {
+    min-height: 50px;
+}
+
+.lat_long_min{
+    text-align:left;
+    width:45px;
+}
 
 dt, dd {
   float: left;
@@ -23,17 +46,18 @@ html {
   right: 0;
   bottom: 0;
   left: 0;*/
+  padding-top: 2%;
   min-height: 500px;
 }
 
-#info {
+/*#info {
   background: #fafafa;
   border-radius: .5em;
   box-shadow: .2em .2em .4em #222;
   font-size: .8em;
   max-width: 66%;
   padding: .25em .5em;
-/*  position: absolute;*/
+  position: absolute;
   left: 1em;
   top: 1em;
-}
+}*/
