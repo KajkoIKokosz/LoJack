@@ -68,13 +68,13 @@ session_start();
                     <div id="point1">
                       <label>Pierwszy punkt
                           <input type="number" min="-89" max="89" step="0.0001" id='x1' name="lat1" placeholder='Szerokość' class='form_coord'>
-                          <input type="number" min="-179" max="179" step="0.0001" id='y1' name="long1" placeholder="wysokość" class='form_coord'>
+                          <input type="number" min="-179" max="179" step="0.0001" id='y1' name="long1" placeholder="długość" class='form_coord'>
                       </label>
                     </div>
                     <div id="point2">
                       <label>Drugi punkt
                       <input type="number" min="-89" max="89" step="0.0001" id='x2' name="lat2" placeholder='Szerokość' class='form_coord'>
-                      <input type="number" min="-179" max="179" step="0.0001" id='y2' name="long2" placeholder="wysokość" class='form_coord'>
+                      <input type="number" min="-179" max="179" step="0.0001" id='y2' name="long2" placeholder="długość" class='form_coord'>
                       </label>
                     </div>
                     <div id="form_validation">

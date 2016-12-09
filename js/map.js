@@ -31,7 +31,6 @@ $('document').ready(function() {
 //    zdarzenie - przycisk oblicz odległość
     $('#compute_distance').click( function(e) {
         e.preventDefault();
-        console.log();
         
         $.ajax({
             url: 'http://localhost:/LoJack/src/getJson.php',
@@ -53,7 +52,7 @@ $('document').ready(function() {
             $('#resultt').append('<h2>Odległość pomiedzy punktami wynosi:</h2><h3>' + (distance / 1000).toFixed(0) + 'kilometrów, a dokładniej ' + distance.toFixed(0) + 'metrów</h3>');
 //            Oprócz metody empty() podczas rządania URL w pliku getJson.php wywołane zostaje unset ($_SESSION['yourPointsOfInterest'])
             $('#your_point_message').empty();},
-            error: function(XMLHttpRequest, textStatus, errorThrown) {console.log(date)}
+            error: function(XMLHttpRequest, textStatus, errorThrown) {console.log("Błąd pobrania json")}
         
     })
 });
@@ -82,7 +81,6 @@ function updateBbox( ) {
     
     // szerokość, długość geograficzna
     var geodetic = $.geo.proj.toGeodetic( center );
-    console.log(geodetic);
     geodetic[0] = parseFloat(geodetic[0]);
     geodetic[1] = parseFloat(geodetic[1]);
     displayCoord( '.geodetic', geodetic );
