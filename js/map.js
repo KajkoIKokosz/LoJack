@@ -33,7 +33,7 @@ $('document').ready(function() {
         e.preventDefault();
         
         $.ajax({
-            url: 'http://localhost:/LoJack/src/getJson.php',
+            url: 'src/getJson.php',
             data: {},
             type: 'GET',
             dataType: 'json',
